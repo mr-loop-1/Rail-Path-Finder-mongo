@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>hello</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+
+    <form action="/users/details" method="POST">
+      <fieldset>
+      <select class="selectpicker" data-style="btn-info" name="selectpicker">
+        <optgroup label="Select Map">
+            <option value="" selected disabled hidden style="text-align:center">From</option>
+            <option name="table1" value="Station">Station</option>
+            <option name="table2" value="Station2">Station2</option>
+        </optgroup>
+        </select>
+        
+      <input type="submit" id="submit-form" onclick="popu('blue');" />
+      </fieldset>
+  </form>
+
+<!-- this error is not unintended-->
+  <button onclick="popu(<%= JSON.stringify(coun) %>);">blue</button>
+<!--
+  <form>
+    <fieldset>
+  <select id="selectNumber">
+    <option>Choose a number</option>
+</select>
+</fieldset>
+</form>
+-->
+<form action="/users/query" method="POST">
+  <fieldset>
+
+    <select id="selectNumber" class="selectpicker1" name="selectpicker1">
+      <option>Choose a number</option>
+    </select>
+
+    <select id="selectNumber2" class="selectpicker2" name="selectpicker2">
+      <option>Choose a number</option>
+    </select>
+  
+<!--  <select class="selectpicker2" name="selectpicker2">
+    <option value="" selected disabled hidden style="text-align:center">From</option>
+            <option name="table1" value="Forest Hills">Forest Hills</option>
+            <option name="table2" value="Downtown">Downtown</option>
+  </select> -->
+  <input type="submit" id="submit-form" />
+  </fieldset>
+</form>
+
+
+
+
+<%
+                      if(userdataa.length!=0){
+                        userdataa.forEach(function(data){
+                      %>
+                      <i class="fa fa-arrow-down"></i><br>
+                          <i class="fas fa-subway" style="color:#000000"></i><b>&nbsp;<%=data %></b>
+                          <br>
+                      <%  }) %>
+                      <% } else{ %>
+                          <tr>
+                              <td colspan="7">No Data Found</td>
+                          </tr>
+                      <% } %>
+
+
+
+                      
+
+
+
+
+
+
+  <% if(imgsrc == 0) { %>
+    <img src = "/images/default.png" style="width: 50%;" />
+  <% } else if(imgsrc == 'Station') { %>
+
+    <img src = "/images/1.png" style="width: 50%;" />
+
+  <% } else if(imgsrc == 'Station2') { %>
+    
+      <img src = "/images/default.png" style="width: 50%;" />
+  <% } %>
+
+
+  
+
+  <script src = '/javascripts/populate.js'></script>
+  </body>
+</html>
