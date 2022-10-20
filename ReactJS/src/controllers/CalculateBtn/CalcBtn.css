@@ -1,0 +1,12 @@
+.btnCenter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem
+}
+
+.calc-trigger {
+    margin-left: 2rem ;
+    color: #477305;
+    margin-bottom: 0.5rem;
+}

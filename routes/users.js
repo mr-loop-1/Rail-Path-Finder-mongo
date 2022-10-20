@@ -4,81 +4,76 @@ var router = express.Router();
 
 var func = require('./mongo.js');
 var funcoun = require('./mongo2.js');
-var client = require('../database');
 
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+// router.get('/', function (req, res, next) {
+//   res.send('respond with a resource');
+// });
 
-
-var variabled = "Station";
-var start, stop, coll, b;
+var coll = "newDelhi";
+var start, stop;
 var count = [];
 var a = [];
 
-router.get("/index2", function(req, res, next) {
-  console.log(variabled);
+router.get("/ida", function (req, res, next) {
+  console.log('hye');
+  coll = String(req.query.city);
+  // console.log("coll", coll);
+  // coll = "Delhi";
 
-  res.render("index2", {title: 'some data', userdataa: a, imgsrc : variabled, coun : count});
-//   variabled = 0;
+  (async function () {
+
+    count = await funcoun(coll);
+    console.log(coll);
+    console.dir(count);
+
+    // count = (coll==="Vice") ? ["asd","bsd"] : ["qwe","wer","ert"];
+    // res.render("index2", { title: 'some data', userdataa: a, imgsrc: coll, coun: count });\
+    // console.log(res);
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+    res.status(200).json({toFill: count});
+    a = [];
+
+  })();
 });
 
-router.post("/details", function(req, res, next) {
-  variabled = req.body.selectpicker;
-  coll = req.body.selectpicker;
-
-  console.log("var = ",variabled);
-/*
-  if(variabled == 1) {
-    coll = 'Station';
-  }
-  else if(variabled == 2) {
-    coll = 'Station2';
-  }
-*/
-  //res.status('200').send({title: 'some data', imgsrc : variabled});
-  //event.preventDefault()
-
-  (async function() {
-  //  count = await client.db('metro4').collection(coll).countDocuments({});
-    count = await funcoun(coll);
-    console.log("count ",count);
-
-    res.redirect("/users/index2");
-  }) ();
-
-  
-})
 
 
-router.post("/query", function(req, res, next) {
-  start = req.body.selectpicker1;
-  stop = req.body.selectpicker2;
+// router.post("/details", function (req, res, next) {
+//   coll = req.body.selectpicker;
+//   coll = String(coll);
 
-//  start= parseInt(start);
-//  stop = parseInt(stop);
+//   res.redirect("/");
 
-  start = String(start);         // a very big bug
-  stop = String(stop);
-/*
-  if(variabled == 1) {
-    coll = 'Station';
-  }
-  else if(variabled == 2) {
-    coll = 'Station2';
-  }
-*/
-  console.log("from",start," to", stop, "in", coll);
+// })
 
-  (async function() {
-    console.log("Reached");
-    b = await client.db('metro4').collection(coll).findOne({"_id":1});
-    console.log(b);
+
+router.get("/query", function (req, res, next) {
+  // start = req.body.selectpicker1;
+
+  console.log("hello there");
+
+  start = String(req.query.st1);
+  stop = String(req.query.st2);
+
+  coll = String(req.query.city);
+
+  // start = String(start);         // a very big bug with toString()
+  // stop = String(stop);
+
+  (async function () {
+    // a = await func(start, stop, coll, () => {
+    //   res.redirect("/users/index2");
+    // });
     a = await func(start, stop, coll);
-    console.log(a);
-    
+    console.log("yyyyyyyyyyyyyyyyyyyyyyyyyyyy",a);
+    // res.redirect("/");
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+    res.status(200).json({toPath: a});
 
-    res.redirect("/users/index2");
   })();
 })
 

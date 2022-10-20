@@ -1,0 +1,11 @@
+.success {
+    color: #477305;
+    font-size: 20px;
+}
+
+.dbcoll {
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+    align-items: center;
+}
