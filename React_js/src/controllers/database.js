@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 import './database.css';
 
-async function stall(stallTime = 5000) {
+const stall = async (stallTime = 5000) => {
     await new Promise(resolve => {
         
         return setTimeout(resolve, stallTime);
