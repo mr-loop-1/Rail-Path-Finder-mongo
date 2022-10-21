@@ -1,79 +1,48 @@
-var express = require('express');
-const req = require('express/lib/request');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-var func = require('./mongo.js');
-var funcoun = require('./mongo2.js');
+const generatePath = require('./mongo_path_finder.js');
+const getStations = require('./mongo_stations.js');
 
-// router.get('/', function (req, res, next) {
-//   res.send('respond with a resource');
-// });
+router.get("/stations", (req, res) => {
 
-var coll = "newDelhi";
-var start, stop;
-var count = [];
-var a = [];
+  console.log('hye Abdul Samad');
+  const coll = String(req.query.city);
 
-router.get("/ida", function (req, res, next) {
-  console.log('hye');
-  coll = String(req.query.city);
-  // console.log("coll", coll);
-  // coll = "Delhi";
+  (async () => {
 
-  (async function () {
+    const stations = await getStations(coll);
 
-    count = await funcoun(coll);
-    console.log(coll);
-    console.dir(count);
-
-    // count = (coll==="Vice") ? ["asd","bsd"] : ["qwe","wer","ert"];
-    // res.render("index2", { title: 'some data', userdataa: a, imgsrc: coll, coun: count });\
-    // console.log(res);
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
-    res.status(200).json({toFill: count});
-    a = [];
 
+    res.status(200).json({stationsList: stations});
   })();
 });
-
-
 
 // router.post("/details", function (req, res, next) {
 //   coll = req.body.selectpicker;
 //   coll = String(coll);
-
 //   res.redirect("/");
-
 // })
 
+router.get("/path", (req, res) => {
 
-router.get("/query", function (req, res, next) {
-  // start = req.body.selectpicker1;
+  const start = String(req.query.st1);
+  const stop = String(req.query.st2);
 
-  console.log("hello there");
+  const coll = String(req.query.city);
 
-  start = String(req.query.st1);
-  stop = String(req.query.st2);
+  (async () => {
 
-  coll = String(req.query.city);
+    a = await generatePath(start, stop, coll);
 
-  // start = String(start);         // a very big bug with toString()
-  // stop = String(stop);
-
-  (async function () {
-    // a = await func(start, stop, coll, () => {
-    //   res.redirect("/users/index2");
-    // });
-    a = await func(start, stop, coll);
-    console.log("yyyyyyyyyyyyyyyyyyyyyyyyyyyy",a);
-    // res.redirect("/");
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
-    res.status(200).json({toPath: a});
 
+    res.status(200).json({toPath: a});
   })();
 })
 
