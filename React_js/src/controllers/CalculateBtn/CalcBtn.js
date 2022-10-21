@@ -16,11 +16,11 @@ const CalcBtn = (props) => {
         props.tgl(true);
         console.log(props.city, " ", props.stations[0], " ", props.stations[1]);
 
-        await fetch(`http://localhost:4100/query?city=${props.city}&st1=${props.stations[0]}&st2=${props.stations[1]}`)
+        await fetch(`http://localhost:4100/path?city=${props.city}&st1=${props.stations[0]}&st2=${props.stations[1]}`)
         .then(res => res.json())
         .then(data => {
-            console.log(data.toPath);
-            updatePath(old => data.toPath);
+            // console.log(data.toPath);
+            updatePath(old => data.pathArray);
             console.log(path);
             firstTime = true;
         })

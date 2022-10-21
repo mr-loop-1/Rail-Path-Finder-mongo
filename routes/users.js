@@ -17,7 +17,7 @@ router.get("/stations", (req, res) => {
     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
 
-    res.status(200).json({stationsList: stations});
+    res.status(200).json({stationsArray: stations});
   })();
 });
 
@@ -42,7 +42,7 @@ router.get("/path", (req, res) => {
     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
 
-    res.status(200).json({toPath: a});
+    res.status(200).json({pathArray: a});
   })();
 })
 

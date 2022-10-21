@@ -32,9 +32,9 @@ const Main = () => {
                 <div class="col-8 text-center">
                     Hello there...<br />
                     Abdul Samad<br />
-                    Github: mr-loop-1
-                    Tech-Stack: React, MERN
-                    Path-Finder: Dijkstra
+                    Github: mr-loop-1<br />
+                    Tech-Stack: React, MERN<br />
+                    Path-Finder: Dijkstra<br />
         
                 </div>
                 <DataFetch startSelectorHandler={startSelectorHandler} />

@@ -11,12 +11,12 @@ const initialCity = "newVice2";
 let allStations = [];
 
 (async () => {
-    await fetch(`http://localhost:4100/ida?city=${initialCity}`)
+    await fetch(`http://localhost:4100/stations?city=${initialCity}`)
         .then((res) => {
             return res.json();
         })
         .then((data) => {
-            allStations = data.toFill;
+            allStations = data.stationsArray;
         });
 })();
 
@@ -28,12 +28,12 @@ const CityList = (props) => {
         const currCity = event.target.value;
         toggleActivate(true);
 
-        await fetch(`http://localhost:4100/ida?city=${currCity}`)
+        await fetch(`http://localhost:4100/stations?city=${currCity}`)
             .then((res) => {
                 return res.json();
             })
             .then((data) => {
-                allStations = data.toFill;
+                allStations = data.stationsArray;
             });
 
         updateCurrentCity((old) => currCity);
@@ -58,9 +58,9 @@ const CityList = (props) => {
                                 return <CityItem city={city} />;
                             })}
                         </select>
-                        <text class="city-info-text">
+                        <p class="city-info-text">
                             Selected City: {currentCity}
-                        </text>
+                        </p>
                         </div>
                     </div>
                 </div>

@@ -8,7 +8,7 @@ const Path = (props) => {
     console.log("here" ,props.path)
 
     const listPath = <ul>{props.path.map(st => {
-        return <li>{st}</li>
+        return <li key={Math.random()+100}>{st}</li>
     })}</ul>;
 
     return ReactDOM.createPortal(
