@@ -31,12 +31,13 @@ const Main = () => {
             <div class = "row row1">
                 <div class="col-8 text-center">
                 <p class="titletext">    
-                    Hello there...<br />
-                    Abdul Samad<br />
-                    Github: mr-loop-1<br />
-                    Tech-Stack: React, MERN<br />
-                    Path-Finder: Dijkstra<br />
-                </p>
+                    Hello there... its Abdul Samad<br />
+                    <br />
+                    Github username : mr-loop-1<br />
+                    This project's repo: React, MERN<br />
+                    the Stack: mern<br />
+                    accuracy of paths: undergoing<br />
+                    </p>
                 </div>
                 <DataFetch startSelectorHandler={startSelectorHandler} />
             </div>

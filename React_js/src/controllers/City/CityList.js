@@ -10,6 +10,14 @@ const initialCity = "newVice2";
 
 let allStations = [];
 
+const stall = async (stallTime = 1500) => {
+    await new Promise(resolve => {
+        
+        return setTimeout(resolve, stallTime);
+    });
+    console.log('It will be printed 2-nd with delay');
+}
+
 (async () => {
     await fetch(`/stations?city=${initialCity}`)
         .then((res) => {
@@ -37,6 +45,8 @@ const CityList = (props) => {
             });
 
         updateCurrentCity((old) => currCity);
+
+        await stall();
 
         toggleActivate(false);
     };
