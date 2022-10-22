@@ -31,11 +31,11 @@ const Main = () => {
             <div class = "row row1">
                 <div class="col-8 text-center">
                 <p class="titletext">    
-                    Hello there... its Abdul Samad<br />
-                    <br />
+                Hello there... its Abdul Samad<br />
                     Github username : mr-loop-1<br />
-                    This project's repo: React, MERN<br />
-                    the Stack: mern<br />
+                    mail: iabdulsamad1412@gmail.com<br /><br />
+                    this project's repo: Rail-Path-Finder-mongo<br />
+                    the Stack: MERN<br />
                     accuracy of paths: undergoing<br />
                     </p>
                 </div>
