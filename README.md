@@ -24,3 +24,8 @@ Running Instance - [railpathfinder.herokuapp.com](http://railpathfinder.herokuap
 
 ## Tech Stack
 MongoDb, ExpressJs, ReactJs, NodeJs (basically mern in the current release)
+
+## Shots
+
+![Screenshot from 2022-10-22 20-50-38](https://user-images.githubusercontent.com/62374784/197347325-1f4ea3f1-54fe-42b9-b698-604915414d24.png)
+![Screenshot from 2022-10-22 20-50-12](https://user-images.githubusercontent.com/62374784/197347327-1983400a-b4e9-4a14-becc-38eed82f2496.png)
