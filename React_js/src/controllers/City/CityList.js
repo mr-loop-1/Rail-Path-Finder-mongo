@@ -11,7 +11,7 @@ const initialCity = "newVice2";
 let allStations = [];
 
 (async () => {
-    await fetch(`http://localhost:4100/stations?city=${initialCity}`)
+    await fetch(`/stations?city=${initialCity}`)
         .then((res) => {
             return res.json();
         })
@@ -28,7 +28,7 @@ const CityList = (props) => {
         const currCity = event.target.value;
         toggleActivate(true);
 
-        await fetch(`http://localhost:4100/stations?city=${currCity}`)
+        await fetch(`/stations?city=${currCity}`)
             .then((res) => {
                 return res.json();
             })

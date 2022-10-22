@@ -29,7 +29,7 @@ const DataFetch = (props) => {
         <div class="col-4">
             <div class="dbcoll">
             <div>
-                <button type="submit" onClick={toggleFetch} disabled={dataFetched}>Fetch Database</button>
+                <button type="submit" class="btnf" onClick={toggleFetch} disabled={dataFetched}>Fetch Database</button>
             </div>
             <p class="success" hidden={fetching}>Waiting...</p>
             <p class="success" hidden={!dataFetched}>Connection success</p>

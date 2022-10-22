@@ -1,8 +1,11 @@
 .success {
+    font-size: 2rem;
     color: #477305;
     font-size: 20px;
 }
-
+.btnf {
+    font-size: larger;
+}
 .dbcoll {
     margin-top: 2rem;
     display: flex;

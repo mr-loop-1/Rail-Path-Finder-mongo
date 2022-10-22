@@ -43,9 +43,9 @@ const StationList = (props) => {
                         })}
                     </select>
                     <div class="st-info-text-wrap">
-                        <text class="st-info-text">
+                        <p class="st-info-text">
                             Origin: {stations[0]}
-                        </text>
+                        </p>
                     </div>
                     </div>
                 </div>

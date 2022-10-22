@@ -30,12 +30,13 @@ const Main = () => {
         <div class="container cont1">
             <div class = "row row1">
                 <div class="col-8 text-center">
+                <p class="titletext">    
                     Hello there...<br />
                     Abdul Samad<br />
                     Github: mr-loop-1<br />
                     Tech-Stack: React, MERN<br />
                     Path-Finder: Dijkstra<br />
-        
+                </p>
                 </div>
                 <DataFetch startSelectorHandler={startSelectorHandler} />
             </div>
@@ -58,8 +59,6 @@ const Main = () => {
         </div>
         </div>  
     );
-
-
 }
 
 export default Main;
