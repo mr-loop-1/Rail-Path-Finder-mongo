@@ -1,6 +1,7 @@
 # Rail Path Finder
 
-Running Instance - [railpathfinder.herokuapp.com](http://railpathfinder.herokuapp.com)
+### Running Instance - [railpathfinder.herokuapp.com](http://railpathfinder.herokuapp.com)
+### algorithm - `/routes/mongo_path_finder.js`
 
 # Version History
 | Date | Summary | Improvement | Link
