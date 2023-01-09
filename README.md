@@ -1,5 +1,5 @@
 # Rail Path Finder
-
+My submission to Mongodb Atlas Hackathon - Jan 2022
 ### Running Instance - [railpathfinder.herokuapp.com](http://railpathfinder.herokuapp.com)
 ### algorithm - `/routes/mongo_path_finder.js`
 
